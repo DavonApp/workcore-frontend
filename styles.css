@@ -29,6 +29,7 @@ button {
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    padding: 10px 24px;
 }
 
 header {
@@ -36,6 +37,15 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 100px;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+nav {
+    margin-left: 200px;
 }
 
 .nav__links {
