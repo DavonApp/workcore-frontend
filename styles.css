@@ -35,7 +35,7 @@ h2 {
 h3 {
     font-family: 'Roboto', 'sans-serif';
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0;
 }
 
@@ -46,24 +46,39 @@ p {
     letter-spacing: 0;
 }
 
-li, a {
+.nav__links li, .nav__links a {
+    display: inline-block;
+    padding: 10px 10px;
     font-family: 'Roboto', 'sans-serif';
     font-size: 24px;
     font-weight: 500;
+    letter-spacing: 0;
     color: #000000;
     text-decoration: none;
+    list-style: none;
+    transition: opacity 0.3s ease;
 }
 
-button {
+.nav__links li:hover, .nav__links a:hover {
+    opacity: 0.6;
+}
+
+
+.nav-right button {
     font-family: 'Roboto', 'sans-serif';
     font-size: 24px;
     font-weight: 500;
-    color: #E5E7EB;
+    color: #ffffff;
     background-color: #6B0504;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     padding: 10px 24px;
+    transition: filter 0.3s ease;
+}
+
+.nav-right button:hover {
+    filter: brightness(75%);
 }
 
 .main-header {
@@ -80,7 +95,7 @@ button {
 .how-it-works-header {
     display: flex;
     gap: 200px;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 100px;
     padding-left: 100px;
 
@@ -94,15 +109,6 @@ button {
 
 nav {
     margin-left: 200px;
-}
-
-.nav__links {
-    list-style: none;
-}
-
-.nav__links li {
-    display: inline-block;
-    padding: 10px 10px;
 }
 
 .hero-section {
@@ -133,21 +139,35 @@ nav {
     width: 415px;
 }
 
-.arrow-button {
+.arrow-button button {
     font-family: 'Roboto', 'sans-serif';
     font-size: 24px;
     font-weight: 500;
-    color: #E5E7EB;
+    color: #ffffff;
     background-color: #6B0504;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    padding: 0px 24px;
+    padding: 10px 24px;
+    text-decoration: none;
+    transition: filter 0.3s ease;
 }
 
-.arrow-button::after {
+.arrow-button button:hover {
+    filter: brightness(75%)
+}
+
+.arrow-button button::after {
+    content: "\2192";
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.arrow-button button:hover::after {
     content: "\2192";
     margin-left: 10px;
+    transform: translateX(8px);
 }
 
 .steps {
@@ -248,4 +268,112 @@ nav {
 
     text-align: center;
     color: #ffffff;
+}
+
+#contact {
+    display: flex;
+    justify-content: flex-start;
+    gap: 500px;
+    align-items: stretch;
+    padding: 150px 100px 100px 100px;
+}
+
+.contact-column1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 400px;
+}
+
+.contact-me h1 {
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.contact-me p {
+    margin-top: 0;
+}
+
+.contact-column2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.find-me-links {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    gap: 20px;
+}
+
+.find-me-links li a {
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: 0px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.find-me-links li a:hover {
+    opacity: .6;
+}
+
+.name-subject {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+
+.company-email {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+
+.submit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.submit button {
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.submit button::after {
+    content: " \2192";
+    display: inline-block;      
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+.submit button:hover {
+    opacity: .6;
+}
+
+.submit button:hover::after {
+    transform: translateX(8px);  
+}
+
+
+
+.name-form,
+.subject-form,
+.company-form,
+.email-form {
+    width: 220px;
 }
