@@ -15,7 +15,7 @@ html {
 }
 
 section {
-    height: 100vh;
+    height: 90vh;
 }
 
 h1 {
@@ -38,6 +38,7 @@ p {
     font-weight: 400;
     letter-spacing: 0;
 }
+
 li, a {
     font-family: 'Roboto', 'sans-serif';
     font-size: 24px;
@@ -57,6 +58,7 @@ button {
     cursor: pointer;
     padding: 10px 24px;
 }
+
 .main-header {
     position: sticky;
     top: 0;
@@ -66,7 +68,6 @@ button {
     align-items: center;
     padding: 10px 100px;
     background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 .how-it-works-header {
