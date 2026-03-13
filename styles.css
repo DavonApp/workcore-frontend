@@ -229,3 +229,23 @@ nav {
     text-align: center;
     width: 100%;
 }
+
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #6B0504;
+    height: 100vh;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+
+    text-align: center;
+    color: #ffffff;
+}
