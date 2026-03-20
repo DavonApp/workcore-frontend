@@ -271,6 +271,7 @@ nav {
 }
 
 #contact {
+    min-height: 100vh;
     display: flex;
     justify-content: flex-start;
     gap: 500px;
@@ -296,15 +297,37 @@ nav {
 
 .contact-column2 {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: column;
     gap: 50px;
+}
+
+.contact-column2 textarea, .contact-column2 input {
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    border: none;
+    border-bottom: 1px solid #000000;
+    padding: 10px 0;
+    width: 220px;
+    background: transparent;
+}
+
+.contact-column2 textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+}
+
+.contact-column2 textarea:focus, .contact-column2 input:focus {
+   outline: none;
 }
 
 .find-me-links {
     list-style: none;
     padding: 0px;
-    margin: 0px;
+    margin-top: 10px;
     display: flex;
     gap: 20px;
 }
@@ -368,8 +391,6 @@ nav {
 .submit button:hover::after {
     transform: translateX(8px);  
 }
-
-
 
 .name-form,
 .subject-form,

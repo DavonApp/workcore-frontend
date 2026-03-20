@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
-<title>WorkCore</title>
+    <title>WorkCore</title>
 </head>
 <body>
     <header class="main-header">
@@ -18,7 +18,7 @@
                     </ul>
                 </nav>
 
-                <a class="cta" href="#"><button>Sign up</button></a>
+                <a class="cta" href="signup.html"><button>Sign up</button></a>
             </div>
     </header>
         <section id="home">
@@ -33,7 +33,7 @@
                     what you start.
                     </p>
 
-                    <a class="arrow-button" href="#"><button>Get Started</button></a>
+                    <a class="arrow-button" href="signup.html"><button>Get Started</button></a>
                 </div>
                 <img src="Images/undraw_starting-work_ifnt.svg" alt="Work brainstorming">
             </div>
@@ -105,9 +105,6 @@
                 <h1>
                     Contact me
                 </h1>
-                <p>
-                    appolon841@gmail.com
-                </p>
             </div>
             <div class="find-me">
                 <h2>
@@ -119,60 +116,52 @@
                 </ul>
             </div>
         </div>
-        <div class="contact-column2">
-            <div class="say-hello">
-                <h2>
-                    Say hello
-                </h2>
-            </div>
-            <div class="name-subject">
-                <div class="name-form">
-                    <h3>
-                        Name
-                    </h3>
-                    <p>
-                        Your name
-                    </p>
+        <form>
+            <div class="contact-column2">
+                <div class="say-hello">
+                    <h2>
+                        Say hello
+                    </h2>
                 </div>
-                <div class="subject-form">
+                <div class="name-subject">
+                    <div class="name-form">
+                        <h3>
+                            Name
+                        </h3>
+                        <input type="text" name="name" placeholder="Your name">
+                    </div>
+                    <div class="subject-form">
+                        <h3>
+                            Subject
+                        </h3>
+                        <input type="text" name="subject" placeholder="Choose subject">
+                    </div>
+                </div>
+                <div class="company-email">
+                    <div class="company-form">
+                        <h3>
+                            Company
+                        </h3>
+                        <input type="text" name="company" placeholder="Your company">
+                    </div>
+                    <div class="email-form">
+                        <h3>
+                            Email
+                        </h3>
+                        <input type="email" name="email" placeholder="Email address">
+                    </div>
+                </div>
+                <div class="message">
                     <h3>
-                        Subject
+                        Message
                     </h3>
-                    <p>
-                        Your subject
-                    </p>
+                    <textarea name="message" placeholder="Start typing here"></textarea>
+                </div>
+                <div class="submit">
+                    <button type="submit">Submit</button>
                 </div>
             </div>
-            <div class="company-email">
-                <div class="company-form">
-                    <h3>
-                        Company
-                    </h3>
-                    <p>
-                        Your company
-                    </p>
-                </div>
-                <div class="email-form">
-                    <h3>
-                        Email
-                    </h3>
-                    <p>
-                        Email address
-                    </p>
-                </div>
-            </div>
-            <div class="message">
-                <h3>
-                    Message
-                </h3>
-                <p>
-                    Your message
-                </p>
-            </div>
-            <div class="submit">
-                <a class="submit-button" href="#"><button>Submit</button></a>
-            </div>
-        </div>
+        </form>
     </section>
 </body>
 </html>
