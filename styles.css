@@ -409,6 +409,7 @@ nav {
 }
 
 .signup-content {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -420,6 +421,32 @@ nav {
     gap: 20px;
     height: 600px;
     width: 550px;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    width: 45px;
+    height: 40px;
+    border-radius: 50%;  
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #E5E7EB;
+    color: #000000;
+    text-decoration: none;
+    font-size: 25px;
+
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #d1d5db;
+    transform: scale(1.1);
 }
 
 .signup-google-button {
@@ -435,6 +462,12 @@ nav {
     padding: 10px 10px;
     text-decoration: none;
     width: 35%;
+
+    transition: filter 0.3s ease;
+}
+
+.signup-google-button:hover {
+    filter: brightness(75%);
 }
 
 .signup-email-button {
@@ -450,6 +483,12 @@ nav {
     padding: 10px 10px;
     text-decoration: none;
     width: 35%;
+
+    transition: filter 0.3s ease;
+}
+
+.signup-email-button:hover {
+    filter: brightness(75%);
 }
 
 .signup-links {
