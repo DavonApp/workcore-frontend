@@ -667,3 +667,88 @@ nav {
 .login-button:hover {
     filter: brightness(75%);
 }
+
+.forgot-password-page {
+    background-color: #E5E7EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.forgot-password-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 25px;
+    gap: 20px;
+    height: 700px;
+    width: 650px;
+}
+
+.forgot-password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 35%;
+}
+
+
+.forgot-password-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 auto;
+    gap: 5px
+}
+
+.forgot-password-form-group label {
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 18px;
+    color:#000000;
+}
+
+.forgot-password-form-group input {
+    width: 100%;
+    padding: 10px 10px;
+    border: 2px solid #000000;
+    border-radius: 25px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.forgot-password-form-group input:focus {
+    border-color: #6B0504;
+    box-shadow: 0 0 0 2px rgba(107, 5, 4, 0.15);
+}
+
+.reset-password-button {
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: #ffffff;
+    background-color: #6B0504;
+    cursor: pointer;
+    border: 2px solid #000000;
+    border-radius: 25px;
+    padding: 10px 10px;
+    text-decoration: none;
+    width: 35%;
+
+    transition: filter 0.3s ease;
+}
+
+.reset-password-button:hover {
+    filter: brightness(75%);
+}
