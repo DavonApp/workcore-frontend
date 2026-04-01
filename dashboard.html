@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="app.js" defer></script>
+    </head>
+    <body class="dashboard-page">
+    <nav class="sidebar">
+        <ul>
+            <li id="toggle-li">
+                <button onclick=toggleSidebar() id="toggle-btn">
+                    <img src="Images/double_arrow_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Double Arrow Icon Right">
+                </button>
+            </li>
+            <li class="sidebar-top">
+                <a href=#>
+                <img src="Images/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Profile Icon">
+                <span class="username">User</span>
+                </a>
+            </li>
+
+            <li class="sidebar-section-label"><span>Main</span></li>
+
+            <li class="active">
+                <a href="dashboard.html">
+                <img src="Images/home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Dashboard Icon">
+                <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <button onclick=toggleSubMenu(this) class="dropdown-btn">
+                <img src="Images/check_box_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Tasks Icon">
+                <span>Tasks</span>
+                <img src="Images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Dropdown Icon">
+                </button>
+                <ul class="tasks-sub-menu">
+                    <div>
+                        <li><a href=#>Today</a></li>
+                        <li><a href=#>Upcoming</a></li>
+                        <li><a href=#>All Tasks</a></li>
+                        <li><a href=#>Completed</a></li>
+                    </div>
+                </ul>
+            </li>
+
+            <li class="sidebar-divider"></li>
+            <li class="sidebar-section-label"><span>General</span></li>
+
+            <li>
+                <a href="calendar.html">
+                <img src="Images/calendar_month_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Calendar Icon">
+                <span>Calendar</span>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                <img src="Images/settings_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Settings Icon">
+                <span>Settings</span>
+                </a>
+            </li>
+            
+            <li class="sidebar-divider"></li>
+
+            <li class="logout">
+                <a href=#>
+                <img src="Images/logout_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Logout Icon">
+                <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

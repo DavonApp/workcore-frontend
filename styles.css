@@ -4,6 +4,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -19,28 +21,28 @@ section {
 }
 
 h1 {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 56px;
     font-weight: bold;
     letter-spacing: 0;
 }
 
 h2 {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 36px;
     font-weight: 600;
     letter-spacing: 0;
 }
 
 h3 {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 500;
     letter-spacing: 0;
 }
 
 p {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0;
@@ -49,7 +51,7 @@ p {
 .nav__links li, .nav__links a {
     display: inline-block;
     padding: 10px 10px;
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 500;
     letter-spacing: 0;
@@ -65,7 +67,7 @@ p {
 
 
 .nav-right button {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 500;
     color: #ffffff;
@@ -140,7 +142,7 @@ nav {
 }
 
 .arrow-button button {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 500;
     color: #ffffff;
@@ -303,7 +305,7 @@ nav {
 }
 
 .contact-column2 textarea, .contact-column2 input {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0;
@@ -333,7 +335,7 @@ nav {
 }
 
 .find-me-links li a {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
     color: #000000;
@@ -366,7 +368,7 @@ nav {
 }
 
 .submit button {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 500;
     letter-spacing: 0;
@@ -450,7 +452,7 @@ nav {
 }
 
 .signup-google-button {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 0px;
@@ -471,7 +473,7 @@ nav {
 }
 
 .signup-email-button {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 0px;
@@ -537,7 +539,7 @@ nav {
 }
 
 .signup-form-group label {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     letter-spacing: 0;
     font-size: 18px;
@@ -578,7 +580,7 @@ nav {
     margin: 0 10px;
     color: #888;
     font-size: 18px;
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     letter-spacing: 0;
 }
@@ -625,7 +627,7 @@ nav {
 }
 
 .login-form-group label {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     letter-spacing: 0;
     font-size: 18px;
@@ -648,7 +650,7 @@ nav {
 }
 
 .login-button {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 0px;
@@ -710,7 +712,7 @@ nav {
 }
 
 .forgot-password-form-group label {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     letter-spacing: 0;
     font-size: 18px;
@@ -733,7 +735,7 @@ nav {
 }
 
 .reset-password-button {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 0px;
@@ -806,7 +808,7 @@ nav {
 
 .use-of-app-list {
     padding-left: 30px;
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
@@ -837,9 +839,227 @@ nav {
 
 .privacy-policy-content ul {
     padding-left: 30px;
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 0;
 }
+
+.dashboard-page {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+
+}
+
+
+.sidebar {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 200px;
+    padding: 5px 1em;
+    background-color: #6B0504;
+    border-right: 1px solid black;
+
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+.sidebar.close {
+    padding: 5px;
+    width: 60px;
+}
+
+.sidebar a {
+    width: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .8em; 
+}
+
+.sidebar li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.tasks-sub-menu {
+    margin: 0;
+    list-style-type: none;
+    padding: .3em;
+}
+
+.tasks-sub-menu li a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar ul li.active a{
+    background: #ffffff;
+    color: #6B0504;
+    border-radius: .5em;
+}
+
+.sidebar ul li.active img {
+    filter: brightness(0) saturate(100%) invert(10%) sepia(90%) saturate(700%) hue-rotate(340deg);
+}
+
+.sidebar-section-label {
+    padding: 4px 10px 2px;
+}
+
+.sidebar-section-label span {
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar.close .sidebar-section-label,
+.sidebar.close .sidebar-divider {
+    opacity: 0;
+}
+
+/* dividers */
+.sidebar-divider {
+    height: 0.5px;
+    background: rgba(255, 255, 255, 0.12);
+    margin: 4px 8px;
+}
+
+li.sidebar-top {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+
+.sidebar a, .sidebar .dropdown-btn {
+    border-radius: .5em;
+    padding: .3em;
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.sidebar a span, .sidebar .dropdown-btn span {
+    flex-grow: 1;
+    transition: opacity 200ms ease-in-out;
+}
+
+.sidebar.close a span, .sidebar.close .dropdown-btn span {
+    opacity: 0;
+}
+
+.sidebar a span, .sidebar .dropdown-btn span {
+    flex-grow: 1;
+}
+
+.sidebar a:hover, .sidebar .dropdown-btn:hover {
+    filter: brightness(75%);
+}
+
+.sidebar .tasks-sub-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+
+    > div{
+        overflow: hidden;
+    }
+}
+
+.sidebar .tasks-sub-menu.show {
+    grid-template-rows: 1fr;
+}
+
+.dropdown-btn img {
+    transition: 200ms ease;
+}
+
+.rotate img:last-child {
+rotate: 180deg;
+}
+
+#toggle-btn img {
+    transition: rotate 200ms ease;
+}
+
+#toggle-btn.rotate img {
+    rotate: 180deg;
+}
+
+.sidebar .tasks-sub-menu {
+    padding-left: 2em;
+}
+
+.dropdown-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    text-align: left;
+    background: none;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+#toggle-li {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidebar.close #toggle-li {
+    justify-content: center;
+}
+
+#toggle-btn {
+    background: none;
+    border: none;
+    border-radius: .5em;
+    padding: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#toggle-btn:hover {
+    filter: brightness(75%);
+}
+
+#toggle-btn img{
+    border: none;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+}
+
+
