@@ -3,6 +3,8 @@
     <head>
         <title>Dashboard</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script type="text/javascript" src="app.js" defer></script>
     </head>
     <body class="dashboard-page">
@@ -70,5 +72,18 @@
             </li>
         </ul>
     </nav>
+    <div class="dashboard-content">
+        <div class="dashboard-header">
+            <h2>Dashboard</h2>
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Search tasks...">
+                <button class="search-btn" onclick="toggleSearch()">
+                    <img src="Images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Search">
+                </button>
+            </div>
+        </div>
+        <div class="task-list" id="task-list"></div>
+        <button class="add-task-btn" onclick="addTask()">+ Add Task</button>
+    </div>
 </body>
 </html>
