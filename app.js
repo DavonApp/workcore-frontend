@@ -22,7 +22,7 @@ function toggleSubMenu(button){
 
 }
 
-function createTaskCard() {
+function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcomingPage = false) {
     const task = document.createElement('div');
     task.classList.add('task-card');
 
@@ -54,8 +54,43 @@ function createTaskCard() {
         </div>
     `;
 
-    flatpickr(task.querySelector('.task-due-input'), { dateFormat: "m/d/Y" });
+    if (isCompletedPage) {
+        const checkbox = task.querySelector('input[type="checkbox"]');
+        const title = task.querySelector('.task-title-input');
+        checkbox.checked = true;
+        title.style.textDecoration = 'line-through';
+        title.style.opacity = '0.4';
+    }
 
+    const fpOptions = { dateFormat: "m/d/Y" };
+
+    if (isTodayPage) {
+        fpOptions.defaultDate = "today";
+        fpOptions.onChange = function(selectedDates, dateStr) {
+            const todayStr = flatpickr.formatDate(new Date(), "m/d/Y");
+            if (dateStr !== todayStr && dateStr !== "") task.style.display = 'none';
+        };
+    }
+
+    if (isUpcomingPage) {
+        // Set default to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        fpOptions.defaultDate = tomorrow;
+
+        fpOptions.onChange = function(selectedDates, dateStr) {
+            const selected = selectedDates[0];
+            const today = new Date();
+            today.setHours(0,0,0,0); // Reset time to compare only date
+
+            // If selected date is today or earlier, hide it from Upcoming
+            if (selected <= today) {
+                task.style.display = 'none';
+            }
+        };
+    }
+
+    flatpickr(task.querySelector('.task-due-input'), fpOptions);
     return task;
 }
 
@@ -71,13 +106,33 @@ function updatePriorityColor(select) {
 
 function addTask() {
     const taskList = document.getElementById('task-list');
-    taskList.appendChild(createTaskCard());
+    if (!taskList) return;
+
+    const pageTitle = document.querySelector('.dashboard-header h2')?.textContent.trim();
+    
+    const isTodayPage = pageTitle === 'Today';
+    const isCompletedPage = pageTitle === 'Completed';
+    const isUpcomingPage = pageTitle === 'Upcoming';
+    
+    taskList.appendChild(createTaskCard(isTodayPage, isCompletedPage, isUpcomingPage));
 }
 
 function toggleComplete(checkbox) {
-    const title = checkbox.closest('.task-card').querySelector('.task-title-input');
+    const card = checkbox.closest('.task-card');
+    const title = card.querySelector('.task-title-input');
+    
+    // Toggle styles
     title.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
     title.style.opacity = checkbox.checked ? '0.4' : '1';
+
+    // Check if we are currently on the "Completed" page
+    const pageTitle = document.querySelector('.dashboard-header h2');
+    const isCompletedPage = pageTitle && pageTitle.textContent.trim() === 'Completed';
+
+    // If we are on the Completed page and the user unchecks the box, hide the card
+    if (isCompletedPage && !checkbox.checked) {
+        card.style.display = 'none';
+    }
 }
 
 function deleteTask(btn) {
