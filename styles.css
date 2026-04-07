@@ -1562,3 +1562,94 @@ span.flatpickr-weekday {
     gap: 8px;
 }
 
+.login-security-content-row2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-security-content-row2-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-security-content-row2-right {
+    display: flex;
+}
+
+.login-security-content-row2-right button {
+    background: none;
+    border: 1px solid #000000;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.login-security-content-row2-right button:hover {
+    background-color: #E5E7EB;
+    transition: background-color 0.2s ease, color 0.2s ease;;
+}
+
+.login-security-content-row3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-security-content-row3 button{
+   background: none;
+   border: 1px solid #6B0504;
+   color: #6B0504;
+   cursor: pointer;
+   border-radius: 10px;
+   padding: 10px;
+}
+
+.login-security-content-row3 button:hover {
+    background-color: #f0e0e0;
+}
+
+.password-form {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+    max-width: 300px;
+}
+
+.password-form .profile-input {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.password-form-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.password-form-btns button {
+    background: none;
+    border: 1px solid #000000;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.password-form-btns button:hover {
+    background-color: #E5E7EB;
+}
+
+.password-form-btns button.saving {
+    border-color: #6B0504;
+    color: #6B0504;
+}
+
+.password-form-btns button.saving:hover {
+    background-color: #f0e0e0;
+}
+

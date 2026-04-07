@@ -136,3 +136,16 @@ function toggleEdit(inputId, btn) {
 }
 
 btn.classList.toggle('saving');
+
+function togglePasswordForm() {
+    const form = document.getElementById('password-form');
+    form.style.display = form.style.display === 'none' ? 'flex' : 'none';
+}
+
+function savePassword() {
+    const lastChanged = document.getElementById('last-changed');
+    const now = new Date();
+    lastChanged.textContent = 'Last changed: ' + now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    togglePasswordForm();
+    // Later: add your fetch/POST call here
+}
