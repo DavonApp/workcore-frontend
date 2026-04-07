@@ -149,3 +149,12 @@ function savePassword() {
     togglePasswordForm();
     // Later: add your fetch/POST call here
 }
+
+function toggleDeleteModal() {
+    const modal = document.getElementById('delete-modal');
+    modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+}
+
+document.getElementById('delete-modal').addEventListener('click', function(e) {
+    if (e.target === this) toggleDeleteModal();
+});

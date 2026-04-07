@@ -114,11 +114,20 @@
                     <hr class="settings-divider">
 
                     <div class="login-security-content-row3">
-                        <button class="delete-account-button">
+                        <button class="delete-account-button" onclick="toggleDeleteModal()">
                             <p>Delete Account</p>
                         </button>
                     </div>
-
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="delete-modal" style="display: none;">
+        <div class="modal">
+            <p>Delete Account</p>
+            <small>Are you sure you want to delete your account? This action cannot be undone.</small>
+            <div class="modal-btns">
+                <button class="password-form-btn cancel-btn" onclick="toggleDeleteModal()"><p>Cancel</p></button>
+                <button class="password-form-btn delete-confirm-btn"><p>Delete</p></button>
             </div>
         </div>
     </div>

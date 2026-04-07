@@ -1653,3 +1653,67 @@ span.flatpickr-weekday {
     background-color: #f0e0e0;
 }
 
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 400px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-btns {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.cancel-btn {
+    background: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    border-color: #000000 !important;
+    color: #333 !important;
+}
+
+
+.cancel-btn:hover{
+    background-color: #E5E7EB;
+}
+
+.delete-confirm-btn {
+    background: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    border-color: #6B0504 !important;
+    color: #6B0504 !important;
+}
+
+.delete-confirm-btn:hover {
+    background-color: #f0e0e0 !important;
+}
