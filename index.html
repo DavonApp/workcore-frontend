@@ -1,167 +1,224 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Page title shown in browser tab -->
     <title>WorkCore</title>
 </head>
+
 <body>
+
+    <!-- 
+        Main header serves as primary navigation hub.
+    -->
     <header class="main-header">
         <h1>WorkCore</h1>
 
-            <div class="nav-right">
-                <nav>
-                    <ul class="nav__links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+        <div class="nav-right">
+            <!-- 
+                Navigation links use anchor tags pointing to section IDs.
+            -->
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
 
-                <a class="cta" href="signup.html"><button>Sign up</button></a>
-            </div>
+            <!-- 
+                Primary call-to-action (CTA).
+            -->
+            <a class="cta" href="signup.html">
+                <button>Sign up</button>
+            </a>
+        </div>
     </header>
-        <section id="home">
-            <div class="hero-section">
-                <div class="hero-content">
-                    <h1>At the core<br>
+
+    <!-- 
+        Hero section
+    -->
+    <section id="home">
+        <div class="hero-section">
+            <div class="hero-content">
+
+                <!-- 
+                    Headline broken into multiple lines for visual emphasis and readability.
+                -->
+                <h1>
+                    At the core<br>
                     of your<br>
                     productivity.
-                    </h1>
-                    <p>Organize tasks, stay <br>
+                </h1>
+
+                <!-- Supporting text reinforces -->
+                <p>
+                    Organize tasks, stay <br>
                     focused, and finish<br>
                     what you start.
-                    </p>
+                </p>
 
-                    <a class="arrow-button" href="signup.html"><button>Get Started</button></a>
-                </div>
-                <img src="Images/undraw_starting-work_ifnt.svg" alt="Work brainstorming">
+                <!-- Secondary CTA -->
+                <a class="arrow-button" href="signup.html">
+                    <button>Get Started</button>
+                </a>
             </div>
-        </section>
+
+            <!-- 
+                Illustration adds visual context 
+            -->
+            <img src="Images/undraw_starting-work_ifnt.svg" alt="Work brainstorming">
+        </div>
+    </section>
+
+    <!-- 
+        "How It Works" section breaks product usage into simple steps.
+    -->
     <section id="how-it-works">
         <div class="how-it-works-header">
             <h2>How It Works</h2>
-            <h2>Change the way you manage your tasks<br>
+
+            <h2>
+                Change the way you manage your tasks<br>
                 with three simple steps
             </h2>
         </div>
+
         <div class="steps">
+
+            <!-- Step 1: Task input -->
             <div class="step-1">
-                <h2>
-                    Step 1
-                </h2>
-                <h3>
-                    Add your tasks.
-                </h3>
-            
+                <h2>Step 1</h2>
+                <h3>Add your tasks.</h3>
                 <img src="Images/undraw_add-post_prex.svg" alt="Adding tasks">
             </div>
+
+            <!-- Step 2: Organization & prioritization -->
             <div class="step-2">
-                <h2>
-                    Step 2
-                </h2>
+                <h2>Step 2</h2>
                 <h3>
                     Organize & prioritze<br>
                     them.
                 </h3>
-            
                 <img src="Images/undraw_thought-process_ze2r.svg" alt="Organizing tasks">
             </div>
+
+            <!-- Step 3: Tracking progress -->
             <div class="step-3">
-                <h2>
-                    Step 3
-                </h2>
+                <h2>Step 3</h2>
                 <h3>
                     See what you’ve<br>
                     completed and whats<br>
                     next.
                 </h3>
-            
-                <img src="Images/undraw_check-boxes_x5fg.svg" alt="Adding tasks">
+                <img src="Images/undraw_check-boxes_x5fg.svg" alt="Task completion">
             </div>
+
         </div>
     </section>
+
+    <!-- 
+        About section provides context about the project.
+    -->
     <section id="about">
         <div class="about-content">
-            <h1>
-                About WorkCore
-            </h1>
+            <h1>About WorkCore</h1>
+
+            <!-- Explains product purpose -->
             <h3>
                 WorkCore is a simple task management web application, designed to<br>
-                keep people focused on the things that matter most to them.<br>
+                keep people focused on the things that matter most to them.
             </h3>
+
+            <!-- Highlights as a learning/full-stack project -->
             <h3>
                 It was created as a student project to explore front-end development, back<br>
-                -end development, and full-stack integration.<br>
+                -end development, and full-stack integration.
             </h3>
+
+            <!-- Design philosophy -->
             <h3>
                 The goal was to make planning and completing tasks simple and intentional. 
             </h3>
         </div>
     </section>
+
+    <!-- 
+        Contact section provides both direct links and a form.
+    -->
     <section id="contact">
+
+        <!-- Left column: external links -->
         <div class="contact-column1">
+
             <div class="contact-me">
-                <h1>
-                    Contact me
-                </h1>
+                <h1>Contact me</h1>
             </div>
+
             <div class="find-me">
-                <h2>
-                    Find Me
-                </h2>
+                <h2>Find Me</h2>
+
+                <!-- External links for professional presence -->
                 <ul class="find-me-links">
                     <li><a href="https://github.com/DavonApp">GitHub</a></li> 
                     <li><a href="https://www.linkedin.com/in/davon-appolon-2693113b0/">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
+
+        <!-- 
+            Contact form allows users to send direct messages.
+            Structured to collect essential communication details.
+        -->
         <form>
             <div class="contact-column2">
+
                 <div class="say-hello">
-                    <h2>
-                        Say hello
-                    </h2>
+                    <h2>Say hello</h2>
                 </div>
+
+                <!-- Grouped inputs improve UX and visual structure -->
                 <div class="name-subject">
                     <div class="name-form">
-                        <h3>
-                            Name
-                        </h3>
+                        <h3>Name</h3>
                         <input type="text" name="name" placeholder="Your name">
                     </div>
+
                     <div class="subject-form">
-                        <h3>
-                            Subject
-                        </h3>
+                        <h3>Subject</h3>
                         <input type="text" name="subject" placeholder="Choose subject">
                     </div>
                 </div>
+
                 <div class="company-email">
                     <div class="company-form">
-                        <h3>
-                            Company
-                        </h3>
+                        <h3>Company</h3>
                         <input type="text" name="company" placeholder="Your company">
                     </div>
+
                     <div class="email-form">
-                        <h3>
-                            Email
-                        </h3>
+                        <h3>Email</h3>
                         <input type="email" name="email" placeholder="Email address">
                     </div>
                 </div>
+
+                <!-- Message field allows longer user input -->
                 <div class="message">
-                    <h3>
-                        Message
-                    </h3>
+                    <h3>Message</h3>
                     <textarea name="message" placeholder="Start typing here"></textarea>
                 </div>
+
+                <!-- Submission button -->
                 <div class="submit">
                     <button type="submit">Submit</button>
                 </div>
+
             </div>
         </form>
     </section>
+
 </body>
 </html>
