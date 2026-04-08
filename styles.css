@@ -1239,6 +1239,10 @@ rotate: 180deg;
     outline: none;
     background: transparent;
     cursor: pointer;
+
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 5px;
 }
 
 .task-due-wrapper {
@@ -1255,12 +1259,62 @@ rotate: 180deg;
     filter: invert(1);
 }
 
+.task-time-wrapper {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 2px 8px;
+}
+
+.task-time-input {
+    border: none;
+    background: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85rem;
+    color: #444;
+    outline: none;
+    cursor: pointer;
+}
+/* The Standard Text Selection */
+::selection {
+    background-color: rgba(107, 5, 4, 0.25) !important;
+    color: #6B0504 !important;
+}
+
+.task-time-input::-webkit-datetime-edit-fields-wrapper {
+    background: transparent;
+}
+
+.task-time-input::-webkit-datetime-edit-hour-field:focus,
+.task-time-input::-webkit-datetime-edit-minute-field:focus,
+.task-time-input::-webkit-datetime-edit-ampm-field:focus {
+    background-color: rgba(107, 5, 4, 0.2) !important;
+    color: #6B0504 !important;
+    border-radius: 2px;
+}
+
+.task-time-input:focus {
+    outline: none !important;
+    border: 1px solid rgba(107, 5, 4, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(107, 5, 4, 0.1) !important;
+}
+
+
+.task-time-input::-webkit-calendar-picker-indicator {
+    filter: invert(12%) sepia(87%) saturate(4895%) hue-rotate(354deg) brightness(85%) contrast(105%); 
+    cursor: pointer;
+}
+
+
 /* Flatpickr Calendar Theme */
 .flatpickr-calendar {
     font-family: 'Roboto', sans-serif;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     border: 1px solid #e0e0e0;
+    z-index: 99999 !important;
 }
 
 .flatpickr-months {
@@ -1309,7 +1363,7 @@ rotate: 180deg;
 
 .flatpickr-current-month input.cur-year:hover,
 .flatpickr-current-month .flatpickr-monthDropdown-months:hover {
-    background-color: #6B0504;
+    background-color: #aaa !important;
 }
 
 /* Day name headers (Su Mo Tu...) */
@@ -1342,9 +1396,9 @@ span.flatpickr-weekday {
 
 .flatpickr-day.selected,
 .flatpickr-day.selected:hover {
-    background-color: #6B0504;
-    border-color: #6B0504;
-    color: #ffffff;
+    background-color: #6B0504 !important;
+    border-color: #6B0504 !important;
+    color: #ffffff !important;
 }
 
 .flatpickr-day.today {
@@ -1785,4 +1839,90 @@ span.flatpickr-weekday {
 .view-btn:hover:not(.active) {
     background-color: #f0e0e0;
     color: #6B0504;
+}
+
+.calendar-content {
+    padding: 70px 40px 40px 120px;
+    max-width: 1200px;
+}
+
+#calendar {
+    font-family: 'Roboto', sans-serif;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-height: 600px; 
+    color: #222;
+}
+
+.fc-event {
+    cursor: pointer;
+    padding: 2px 5px;
+    font-size: 0.85em;
+}
+
+.fc {
+    max-width: 100%;
+    height: 100%;
+}
+
+.fc-daygrid-day:hover {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    cursor: pointer;
+}
+
+.fc-day-today {
+    background-color: rgba(107, 5, 4, 0.05) !important;
+}
+
+.fc-highlight {
+    background-color: rgba(107, 5, 4, 0.1) !important; 
+}
+
+.fc-daygrid-day-number:hover {
+    color: #6B0504;
+    font-weight: bold;
+}
+
+.fc-daygrid-day {
+    transition: background-color 0.2s ease;
+}
+
+/* Style Month Title */
+.fc-toolbar-title {
+    font-size: 1.5rem !important;
+    color: #333;
+    font-weight: 600;
+}
+
+.fc .fc-button {
+    text-transform: capitalize !important;
+}
+
+.fc-button-group {
+    gap: 10px;
+}
+
+.fc-button-group > .fc-button {
+    border-radius: 6px !important; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px !important;
+}
+
+/* Style the Prev/Next/Today buttons */
+.fc-button-primary {
+    background-color: #6B0504 !important; 
+    border-color: #6B0504 !important;
+    text-transform: capitalize;
+}
+
+.fc-button-primary:hover {
+    background-color: #4a0302 !important; 
+}
+
+.fc-header-toolbar {
+    margin-bottom: 1.5em !important;
 }
