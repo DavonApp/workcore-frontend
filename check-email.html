@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-        <title>Check Your Email</title>
-    </head>
-    <body class="check-email-page">
-        <div class="check-email-content"> 
-            
-            <a href="index.html" class="back-button">&#8592;</a>
+<head>
+    <!-- External stylesheet-->
+    <link rel="stylesheet" href="styles.css">
 
-            <img src="Images/Group.svg" alt="Email Icon">
+    <!-- Page title gives user context after triggering password reset -->
+    <title>Check Your Email</title>
+</head>
 
-            <h2>Check your email</h2>
-            <p>We've sent a password reset link to your email</p>
-            <p>Didn't recieve an email? Check your spam folder.</p>
-        </div>
-    </body>
+<body class="check-email-page">
+
+    <!-- 
+        Centered container
+    -->
+    <div class="check-email-content"> 
+        
+        <!-- 
+            Back navigation allows users to return if they entered the wrong email
+            or want to restart the process.
+        -->
+        <a href="index.html" class="back-button">&#8592;</a>
+
+        <!-- 
+            Visual icon reinforces the action (email sent).
+        -->
+        <img src="Images/Group.svg" alt="Email Icon">
+
+        <!-- Primary confirmation message -->
+        <h2>Check your email</h2>
+
+        <!-- 
+            Clear instruction on what happened.
+        -->
+        <p>We've sent a password reset link to your email</p>
+
+        <!-- 
+            Anticipates common user issue (email not received).
+            Improves UX by guiding next steps
+        -->
+        <p>Didn't recieve an email? Check your spam folder.</p>
+
+    </div>
+
+</body>
 </html>
