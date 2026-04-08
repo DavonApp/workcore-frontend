@@ -7,14 +7,21 @@
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script type="text/javascript" src="app.js" defer></script>
     </head>
+
     <body class="dashboard-page">
+
+    <!-- Sidebar navigation -->
     <nav class="sidebar">
         <ul>
+
+            <!-- Sidebar collapse/expand toggle -->
             <li id="toggle-li">
                 <button onclick=toggleSidebar() id="toggle-btn">
                     <img src="Images/double_arrow_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Double Arrow Icon Right">
                 </button>
             </li>
+
+            <!-- User profile shortcut (top of sidebar) -->
             <li class="sidebar-top" class="active">
                 <a href="profile.html">
                 <img src="Images/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Profile Icon">
@@ -24,18 +31,22 @@
 
             <li class="sidebar-section-label"><span>Main</span></li>
 
+            <!-- Dashboard navigation link -->
             <li>
                 <a href="dashboard.html">
                 <img src="Images/home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Dashboard Icon">
                 <span>Dashboard</span>
                 </a>
             </li>
+
+            <!-- Tasks dropdown with sub-routes (Today / Upcoming / Completed) -->
             <li>
                 <button onclick=toggleSubMenu(this) class="dropdown-btn">
                 <img src="Images/check_box_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Tasks Icon">
                 <span>Tasks</span>
                 <img src="Images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Dropdown Icon">
                 </button>
+
                 <ul class="tasks-sub-menu">
                     <div>
                         <li><a href="tasks-today.html">Today</a></li>
@@ -48,21 +59,25 @@
             <li class="sidebar-divider"></li>
             <li class="sidebar-section-label"><span>General</span></li>
 
+            <!-- Calendar navigation -->
             <li>
                 <a href="calendar.html">
                 <img src="Images/calendar_month_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Calendar Icon">
                 <span>Calendar</span>
                 </a>
             </li>
+
+            <!-- Settings page (currently active) -->
             <li class="active">
                 <a href="settings.html">
                 <img src="Images/settings_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Settings Icon">
                 <span>Settings</span>
                 </a>
             </li>
-            
+
             <li class="sidebar-divider"></li>
 
+            <!-- Logout action -->
             <li class="logout">
                 <a href=#>
                 <img src="Images/logout_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Logout Icon">
@@ -71,39 +86,58 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Main settings page content -->
     <div class="dashboard-content">
+
+        <!-- Page header -->
         <div class="dashboard-header">
             <h2>Settings</h2>
         </div>
+
+        <!-- Settings layout split: left navigation + right content -->
         <div class="settings-layout">
+
+            <!-- Settings subsection navigation -->
             <nav class="settings-nav">
                 <ul>
                     <li><a href="profile.html">Profile</a></li>
                     <li class="active"><a href="settings.html">Login & Security</a></li>
                 </ul>
             </nav>
+
+            <!-- Settings main content area -->
             <div class="settings-content">
+
+                    <!-- Profile icon / visual header -->
                     <div class="settings-content-row1">
                         <svg class="profile-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm146.5-204.5Q340-521 340-580t40.5-99.5Q421-720 480-720t99.5 40.5Q620-639 620-580t-40.5 99.5Q539-440 480-440t-99.5-40.5ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm100-95.5q47-15.5 86-44.5-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160q53 0 100-15.5ZM523-537q17-17 17-43t-17-43q-17-17-43-17t-43 17q-17 17-17 43t17 43q17 17 43 17t43-17Zm-43-43Zm0 360Z"/></svg>
                     </div>
 
                     <hr class="settings-divider">
 
+                    <!-- Login & Security: password management section -->
                     <div class="login-security-content-row2">
+
                         <div class="login-security-content-row2-left">
                             <p>Password</p>
                             <small>Last changed: Never</small>
 
+                            <!-- Hidden password update form (revealed on user action) -->
                             <div class="password-form" id="password-form" style="display: none;">
                                 <input class="profile-input" type="password" placeholder="Current password" id="current-password">
                                 <input class="profile-input" type="password" placeholder="New password" id="new-password">
                                 <input class="profile-input" type="password" placeholder="Confirm new password" id="confirm-password">
-                            <div class="password-form-btns">
-                                <button class="edit-button" onclick="togglePasswordForm()"><p>Cancel</p></button>
-                                <button class="edit-button saving" onclick="savePassword()"><p>Save</p></button>
+
+                                <!-- Form actions: cancel or save password update -->
+                                <div class="password-form-btns">
+                                    <button class="edit-button" onclick="togglePasswordForm()"><p>Cancel</p></button>
+                                    <button class="edit-button saving" onclick="savePassword()"><p>Save</p></button>
+                                </div>
                             </div>
                         </div>
-                        </div>
+
+                        <!-- Trigger button to open password form -->
                         <div class="login-security-content-row2-right">
                             <button class="edit-button" onclick="togglePasswordForm()">
                                 <p>Change Password</p>
@@ -113,6 +147,7 @@
 
                     <hr class="settings-divider">
 
+                    <!-- Account deletion section -->
                     <div class="login-security-content-row3">
                         <button class="delete-account-button" onclick="toggleDeleteModal()">
                             <p>Delete Account</p>
@@ -121,15 +156,20 @@
             </div>
         </div>
     </div>
+
+    <!-- Confirmation modal for account deletion -->
     <div class="modal-overlay" id="delete-modal" style="display: none;">
         <div class="modal">
             <p>Delete Account</p>
             <small>Are you sure you want to delete your account? This action cannot be undone.</small>
+
+            <!-- Modal actions -->
             <div class="modal-btns">
                 <button class="password-form-btn cancel-btn" onclick="toggleDeleteModal()"><p>Cancel</p></button>
                 <button class="password-form-btn delete-confirm-btn"><p>Delete</p></button>
             </div>
         </div>
     </div>
+
 </body>
 </html>
