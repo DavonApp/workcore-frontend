@@ -1,41 +1,84 @@
+<!--
+Dashboard Page
+Handles:
+- Task overview
+- Navigation between app features
+- Task creation and search
+
+Central hub for user productivity and interaction with backend data
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Dashboard</title>
+
+        <!-- Main stylesheet for consistent styling across the app -->
         <link rel="stylesheet" href="styles.css">
+
+        <!-- Flatpickr CSS for calendar/date input UI -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+        <!-- Flatpickr JS library
+         Enables advanced date picking functionality without building from scratch 
+         -->
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+        <!-- Main JavaScript file for handling interactivity -->
+        <!-- defer ensures DOM loads before script runs -->
         <script type="text/javascript" src="app.js" defer></script>
     </head>
+
+    <!-- Page-specific class for layout control -->
     <body class="dashboard-page">
+
+    <!-- Sidebar navigation -->
     <nav class="sidebar">
         <ul>
+
+            <!-- Sidebar toggle button
+                 allows users to collapse sidebar  
+             -->
             <li id="toggle-li">
                 <button onclick=toggleSidebar() id="toggle-btn">
                     <img src="Images/double_arrow_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Double Arrow Icon Right">
                 </button>
             </li>
+
+            <!-- User profile section -->
             <li class="sidebar-top">
                 <a href="profile.html">
                 <img src="Images/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Profile Icon">
+
+                <!-- Username display -->
                 <span class="username">User</span>
                 </a>
             </li>
 
+            <!-- Section label -->
             <li class="sidebar-section-label"><span>Main</span></li>
 
+            <!-- Active page indicator -->
             <li class="active">
                 <a href="dashboard.html">
                 <img src="Images/home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Dashboard Icon">
                 <span>Dashboard</span>
                 </a>
             </li>
+
+            <!-- Tasks dropdown menu -->
+            <!-- Groups related pages (Today, Upcoming, Completed) to reduce clutter -->
             <li>
                 <button onclick=toggleSubMenu(this) class="dropdown-btn">
                 <img src="Images/check_box_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Tasks Icon">
                 <span>Tasks</span>
+
+                <!-- Dropdown indicator -->
                 <img src="Images/arrow_drop_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Dropdown Icon">
                 </button>
+
+                <!-- Submenu -->
+                <!-- Hidden by default to keep UI clean -->
                 <ul class="tasks-sub-menu">
                     <div>
                         <li><a href="tasks-today.html">Today</a></li>
@@ -45,24 +88,31 @@
                 </ul>
             </li>
 
+            <!-- Visual divider -->
+            <!-- Separates different navigation sections -->
             <li class="sidebar-divider"></li>
+
             <li class="sidebar-section-label"><span>General</span></li>
 
+            <!-- Calendar page -->
             <li>
                 <a href="calendar.html">
                 <img src="Images/calendar_month_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Calendar Icon">
                 <span>Calendar</span>
                 </a>
             </li>
+
+            <!-- Settings page -->
             <li>
                 <a href="settings.html">
                 <img src="Images/settings_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Settings Icon">
                 <span>Settings</span>
                 </a>
             </li>
-            
+
             <li class="sidebar-divider"></li>
 
+            <!-- Logout -->
             <li class="logout">
                 <a href=#>
                 <img src="Images/logout_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Logout Icon">
@@ -71,17 +121,36 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Main dashboard content -->
+    <!-- Separates navigation from primary functionality -->
     <div class="dashboard-content">
+
+        <!-- Header section -->
         <div class="dashboard-header">
             <h2>Dashboard</h2>
+
+            <!-- Search bar -->
+            <!-- Enables quick filtering of tasks -->
             <div class="search-container">
+
+                <!-- Input field -->
+                <!-- Allows users to type search queries -->
                 <input type="text" id="search-input" class="search-input" placeholder="Search tasks...">
+
+                <!-- Search toggle button -->
                 <button class="search-btn" onclick="toggleSearch()">
                     <img src="Images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Search">
                 </button>
             </div>
         </div>
+
+        <!-- Task list container -->
+        <!-- Dynamically populated via JavaScript from backend data -->
         <div class="task-list" id="task-list"></div>
+
+        <!-- Add task button -->
+        <!-- Primary user action for creating new tasks -->
         <button class="add-task-btn" onclick="addTask()">+ Add Task</button>
     </div>
 </body>
