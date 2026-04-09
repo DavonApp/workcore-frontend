@@ -665,17 +665,43 @@ document.addEventListener('DOMContentLoaded', () => {
             selectMirror: true,
 
             /*
-                Static sample event.
-                Placeholder until backend integration replaces this with dynamic data.
+                Dynamic Data for FullCalendar page
             */
-            events: [
-                {
-                    title: 'Work Project (High)',
-                    start: new Date().toISOString().split('T')[0],
-                    backgroundColor: '#6B0504',
-                    borderColor: '#6B0504'
+            events: async function(fetchInfo, successCallback, failureCallback) {
+                try {
+                    const res = await fetch(API_BASE);
+                    const tasks = await res.json();
+
+                    const priorityColors = {
+                        HIGH: '#6B0504',
+                        MEDIUM: '#b45309',
+                        LOW: '#1e5631',
+                        null: '#3788d8' // defauly for no priority
+                    };
+
+                    const events = tasks
+                        .filter(task => task.dueDate) // Skips tasks wiht no due date
+                        .map(task => ({
+                            title: task.title || '(Untitled)',
+                            start: task.dueTime
+                                ? `${task.dueDate}T${task.dueTime}`
+                                : task.dueDate,
+                            backgroundColor: priorityColors[task.priority] ?? priorityColors[null],
+                            borderColor: priorityColors[task.priority] ?? priorityColors[null],
+                            textDecoration: task.isCompleted ? 'line-through' : '',
+                            opacity:        task.isCompleted ? '0.5' : '1',
+                            extendedProps: {
+                                description: task.description,
+                                category:    task.category,
+                                isCompleted: task.isCompleted
+                            }
+                        }));
+                    successCallback(events);
+                } catch (err) {
+                    console.error('Failed to load calendar events:', err);
+                    failureCallback(err);
                 }
-            ],
+            },
 
             // Debug + interaction hooks for future features
             select: function(info) {
@@ -683,7 +709,13 @@ document.addEventListener('DOMContentLoaded', () => {
             },
 
             eventClick: function(info) {
-                alert('Event: ' + info.event.title);
+                const {description, category, isCompleted } = info.event.extendedProps;
+                alert(
+                    `${info.event.title}\n` +
+                    `${description ? 'Notes: ' + description + '\n' : ''}` +
+                    `${category ? 'Category: ' + category + '\n' : ''}` +
+                    `Status: ${isCompleted ? 'Completed' : 'Incomplete'}`
+                );
             },
 
             datesSet: function(info) {
