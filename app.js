@@ -160,14 +160,6 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
         allowInput: true  // Allows manual typing for flexibility
     };
 
-    // Attach flatpickr to wrapper (enables clicking icon to open calendar)
-    flatpickr(task.querySelector('.task-due-wrapper'), fpOptions);
-
-    /*
-        Today Page Behavior:
-        - Default to today's date
-        - Hide tasks if user changes date away from today
-    */
     if (isTodayPage) {
         fpOptions.defaultDate = "today";
 
@@ -190,6 +182,7 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
         tomorrow.setDate(tomorrow.getDate() + 1);
 
         fpOptions.defaultDate = tomorrow;
+        fpOptions.minDate = "tomorrow" // Prevents selcting today or past dates
 
         fpOptions.onChange = function(selectedDates) {
             const selected = selectedDates[0];
@@ -203,8 +196,8 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
         };
     }
 
-    // Attach flatpickr directly to input as well (ensures proper binding)
-    flatpickr(task.querySelector('.task-due-input'), fpOptions);
+    // Attach flatpickr to wrapper (enables clicking icon to open calendar)
+    flatpickr(task.querySelector('.task-due-wrapper'), fpOptions);
 
     return task;
 }
