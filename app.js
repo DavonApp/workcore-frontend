@@ -34,6 +34,42 @@ function getTaskDataFromCard(card) {
 }
 
 // ==========================
+// EMAIL CONTACT FORM SYSTEM
+// ==========================
+
+
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = {
+        name: document.querySelector("input[name='name']").value,
+        subject: document.querySelector("input[name='subject']").value,
+        email: document.querySelector("input[name='email']").value,
+        message: document.querySelector("textarea[name='message']").value
+    };
+
+    fetch("http://localhost:8080/api/contact", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert("Message sent!");
+
+        document.getElementById("contact-form").reset();
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Failed to send message.");
+    });
+});
+
+
+// ==========================
 // SIDEBAR INTERACTIONS
 // ==========================
 
