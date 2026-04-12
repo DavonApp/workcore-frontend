@@ -2,9 +2,6 @@
 // GLOBAL STATE
 // ==========================
 
-// Hardcoded session functionality
-const USER_ID = 1;
-
 // Holds reference to FullCalendar instance so it can be controlled globally
 let calendar;
 
@@ -12,7 +9,7 @@ let calendar;
 const toggleButton = document.getElementById('toggle-btn');
 const sidebar = document.querySelector('.sidebar');
 
-const API_BASE = `http://localhost:8080/api/tasks?userId=${USER_ID}`;
+const API_BASE = 'http://localhost:8080/api/tasks';
 
 // Converts flatpickr's m/d/Y to yyyy-MM-dd that Java's LocalDate expects
 function formatDateForBackend(dateStr) {
@@ -319,9 +316,10 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
 
         if (taskId) {
             // Already exists — update it
-            await fetch(`http://localhost:8080/api/tasks/${taskId}?userId=${USER_ID}`, {
+            await fetch(`http://localhost:8080/api/tasks/${taskId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include', // sends session cookie
                 body: JSON.stringify(data)
             });
         } else {
@@ -329,6 +327,7 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
             const res = await fetch(API_BASE, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include', // sends session cookie
                 body: JSON.stringify(data)
             });
             const created = await res.json();
@@ -390,6 +389,7 @@ async function toggleComplete(checkbox) {
         await fetch(`${API_BASE}/${taskId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include', // sends session cookie
             body: JSON.stringify(getTaskDataFromCard(card))
         });
     }
@@ -409,8 +409,9 @@ async function deleteTask(btn) {
     const taskId = card.dataset.taskId;
 
     if (taskId) {
-        await fetch(`http://localhost:8080/api/tasks/${taskId}?userId=${USER_ID}`, { 
-            method: 'DELETE' 
+        await fetch(`http://localhost:8080/api/tasks/${taskId}`, { 
+            method: 'DELETE',
+            credentials: 'include' // sends session cookie
         });
     }
 
@@ -598,7 +599,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadTasks() {
-    const res = await fetch(API_BASE);
+    const res = await fetch(API_BASE, {
+        credentials: 'include' // sends session cookie
+    });
+
     const tasks = await res.json();
 
     const pageTitle = document.querySelector('.dashboard-header h2')?.textContent.trim();
@@ -710,7 +714,9 @@ document.addEventListener('DOMContentLoaded', () => {
             */
             events: async function(fetchInfo, successCallback, failureCallback) {
                 try {
-                    const res = await fetch(API_BASE);
+                    const res = await fetch(API_BASE, {
+                        credentials: 'include' // sends session cookie
+                    });
                     const tasks = await res.json();
 
                     const priorityColors = {
