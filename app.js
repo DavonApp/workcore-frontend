@@ -2,6 +2,9 @@
 // GLOBAL STATE
 // ==========================
 
+// Hardcoded session functionality
+const USER_ID = 1;
+
 // Holds reference to FullCalendar instance so it can be controlled globally
 let calendar;
 
@@ -9,7 +12,7 @@ let calendar;
 const toggleButton = document.getElementById('toggle-btn');
 const sidebar = document.querySelector('.sidebar');
 
-const API_BASE = 'http://localhost:8080/api/tasks';
+const API_BASE = `http://localhost:8080/api/tasks?userId=${USER_ID}`;
 
 // Converts flatpickr's m/d/Y to yyyy-MM-dd that Java's LocalDate expects
 function formatDateForBackend(dateStr) {
@@ -316,7 +319,7 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
 
         if (taskId) {
             // Already exists — update it
-            await fetch(`${API_BASE}/${taskId}`, {
+            await fetch(`http://localhost:8080/api/tasks/${taskId}?userId=${USER_ID}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -406,7 +409,9 @@ async function deleteTask(btn) {
     const taskId = card.dataset.taskId;
 
     if (taskId) {
-        await fetch(`${API_BASE}/${taskId}`, { method: 'DELETE' });
+        await fetch(`http://localhost:8080/api/tasks/${taskId}?userId=${USER_ID}`, { 
+            method: 'DELETE' 
+        });
     }
 
     card.remove();
