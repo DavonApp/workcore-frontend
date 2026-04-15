@@ -38,7 +38,8 @@ function getTaskDataFromCard(card) {
 // ==========================
 
 
-
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
 document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -67,6 +68,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
         alert("Failed to send message.");
     });
 });
+}
 
 
 // ==========================
@@ -278,7 +280,7 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
         defaultDate: "09:00",
         onReady: function(selectedDates, dateStr, instance) {
             if (dateStr) {
-                task.dataset.dueTime = instance.formatDate(selectedDates[0], "H:i:s")
+                task.dataset.dueTime = instance.formatDate(selectedDates[0], "H:i:S")
             }
         },
         onClose: function(selectedDates, dateStr, instance) {
@@ -308,30 +310,36 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
     });
 
 
-    async function saveTaskCard(card) {
+        async function saveTaskCard(card) {
         const taskId = card.dataset.taskId;
         const data = getTaskDataFromCard(card);
 
-        if (!data.title) return; // Don't save empty tasks
+        if (!data.title) return;
 
-        if (taskId) {
-            // Already exists — update it
-            await fetch(`http://localhost:8080/api/tasks/${taskId}`, {
-                method: 'PUT',
+        try {
+            const res = await fetch(taskId ? `${API_BASE}/${taskId}` : API_BASE, {
+                method: taskId ? 'PUT' : 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include', // sends session cookie
+                credentials: 'include',
                 body: JSON.stringify(data)
             });
-        } else {
-            // Brand new task — create it and store the returned ID
-            const res = await fetch(API_BASE, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                credentials: 'include', // sends session cookie
-                body: JSON.stringify(data)
-            });
-            const created = await res.json();
-            card.dataset.taskId = created.id; // Store ID for future updates
+
+            // Check if the server actually returned a 200-299 status
+            if (!res.ok) {
+                console.error(`Server error: ${res.status}`);
+                return;
+            }
+
+            // Only parse if it's a new task (POST) and the response isn't empty
+            if (!taskId) {
+                const text = await res.text();
+                if (text) {
+                const created = await res.json();
+                card.dataset.taskId = created.id;
+                }
+            }
+        } catch (err) {
+            console.error("Network or parsing error:", err);
         }
     }
     return task;
@@ -612,6 +620,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch(API_BASE, {
         credentials: 'include' // sends session cookie
     });
+
+    if (!res.ok) {
+        console.error("Failed to load tasks:", res.status);
+        return; 
+    }
 
     const tasks = await res.json();
 
