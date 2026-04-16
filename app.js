@@ -488,6 +488,19 @@ function toggleEdit(inputId, btn) {
     }
 }
 
+async function saveProfileField(field, value) {
+    try {
+        await fetch('http://localhost:8080/api/user/profile', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            credentials: 'include',
+            body: JSON.stringify( {[field]: value})
+        });
+    } catch (err) {
+        console.error('Faild to save profile:', err);
+    }
+}
+
 /*
     Cancels an in-progress edit and restores the previous value.
     Only shown while a field is actively being edited.
