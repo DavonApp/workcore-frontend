@@ -552,9 +552,8 @@ function togglePasswordForm() {
 }
 
 /*
-    Placeholder for password save logic.
+    Password save logic.
     Validates that new and confirm fields match before proceeding.
-    Replace the console.log with a real API call when backend is ready.
 */
 async function savePassword() {
     const current = document.getElementById('current-password').value;
@@ -564,6 +563,7 @@ async function savePassword() {
     // Basic client-side guard — backend should validate as well
     if (!current || !next || !confirm) {
         alert("Please fill in all fields");
+        return;
     }
 
     if (next !== confirm) {
@@ -572,9 +572,9 @@ async function savePassword() {
     }
 
     try {
-        const res = await fetch('http:localhost:8080/api/user/password', {
+        const res = await fetch('http://localhost:8080/api/user/password', {
             method: 'PUT',
-            header: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json'},
             credentials: 'include',
             body: JSON.stringify({
                 currentPassword: current,
@@ -586,9 +586,10 @@ async function savePassword() {
 
         if (!res.ok) {
             alert(message); // backend error message
+            return;
         }
 
-        alert("Passowrd update sucessfully")
+        alert("Passowrd updated successfully.")
 
         // Reset form + close form 
         togglePasswordForm();
