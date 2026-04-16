@@ -591,6 +591,10 @@ async function savePassword() {
 
         alert("Passowrd updated successfully.")
 
+        // Updates UI text without refresh
+        const now = new Date();
+        document.getElementById('last-changed-text').innerText = `Last changed: ${now.toLocaleDateString()}`;
+
         // Reset form + close form 
         togglePasswordForm();
 
@@ -599,6 +603,32 @@ async function savePassword() {
         alert("Something went wrong. Try again.");
     }
 }
+
+// Run this when the settings page loads
+async function loadSettings() {
+    const dateElement = document.getElementById('last-changed-text');
+    if (!dateElement) return; // Exit if we aren't on the settings page
+
+    try {
+        const res = await fetch('http://localhost:8080/api/user/profile', {
+            credentials: 'include'
+        });
+        
+        const profileData = await res.json();
+
+        if (profileData.lastChanged && profileData.lastChanged !== "Never") {
+            const changedDate = new Date(profileData.lastChanged);
+            dateElement.innerText = `Last changed: ${changedDate.toLocaleDateString()}`;
+        } else {
+            dateElement.innerText = "Last changed: Never";
+        }
+    } catch (err) {
+        console.error("Failed to load settings", err);
+    }
+}
+
+// Call it on page load
+document.addEventListener('DOMContentLoaded', loadSettings);
 
 // ============================
 // SETTINGS DELETE MODAL TOGGLE
