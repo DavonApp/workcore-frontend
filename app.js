@@ -310,38 +310,39 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
     });
 
 
-        async function saveTaskCard(card) {
-        const taskId = card.dataset.taskId;
-        const data = getTaskDataFromCard(card);
+            async function saveTaskCard(card) {
+                const taskId = card.dataset.taskId;
+                const data = getTaskDataFromCard(card);
 
-        if (!data.title) return;
+                if (!data.title) return;
 
-        try {
-            const res = await fetch(taskId ? `${API_BASE}/${taskId}` : API_BASE, {
-                method: taskId ? 'PUT' : 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
-                body: JSON.stringify(data)
-            });
+                try {
+                    const res = await fetch(taskId ? `${API_BASE}/${taskId}` : API_BASE, {
+                    method: taskId ? 'PUT' : 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify(data)
+                    });
 
-            // Check if the server actually returned a 200-299 status
-            if (!res.ok) {
-                console.error(`Server error: ${res.status}`);
-                return;
-            }
+                    if (!res.ok) {
+                        const errorText = await res.text(); 
+                        console.error(`Server error: ${res.status}`, errorText);
+                        return;
+                    }
 
-            // Only parse if it's a new task (POST) and the response isn't empty
-            if (!taskId) {
-                const text = await res.text();
-                if (text) {
-                const created = await res.json();
-                card.dataset.taskId = created.id;
+                    if (!taskId) {
+                        const text = await res.text(); 
+
+                        if (text) {
+                            const created = await res.json();
+                            card.dataset.taskId = created.id;
+                        }
+                    }
+
+                } catch (err) {
+                    console.error("Network or parsing error:", err);
                 }
             }
-        } catch (err) {
-            console.error("Network or parsing error:", err);
-        }
-    }
     return task;
 }
 
