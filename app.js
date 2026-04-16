@@ -457,33 +457,34 @@ function filterTasks(query) {
 // PROFILE EDIT TOGGLE
 // ==========================
 
-/*
-    Toggles a profile input field between read-only and editable states.
-    Saves the previous value so the user can cancel without losing data.
-    Accepts the input's ID and the button element that triggered the call.
-*/
 function toggleEdit(inputId, btn) {
     const input = document.getElementById(inputId);
-    if (!input) return; // Defensive check if element isn't on the page
+    if (!input) return;
 
     const isEditing = !input.readOnly;
 
     if (isEditing) {
-        // Save mode: lock the field and persist the new value ---
         input.readOnly = true;
         input.classList.remove('profile-input-active');
         btn.querySelector('p').textContent = 'Edit';
-
-        // Clear saved fallback — value is now committed
         delete input.dataset.prevValue;
+
+        // Persist to backend and sync sidebar
+        if (inputId === 'display-name') {
+            saveProfileField('name', input.value);
+            // Update sidebar on every page
+            const usernameSpan = document.querySelector('.sidebar .username');
+            if (usernameSpan) usernameSpan.textContent = input.value;
+        }
+        if (inputId === 'display-email') {
+            saveProfileField('email', input.value);
+        }
+
     } else {
-        // Edit mode: unlock the field and focus it ---
         input.readOnly = false;
         input.classList.add('profile-input-active');
         input.focus();
         btn.querySelector('p').textContent = 'Save';
-
-        // Store current value so Cancel can restore it
         input.dataset.prevValue = input.value;
     }
 }
