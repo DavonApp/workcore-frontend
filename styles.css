@@ -1723,7 +1723,7 @@ span.flatpickr-weekday {
     flex-direction: column;
     gap: 12px;
     margin-top: 16px;
-    max-width: 300px;
+    max-width: 400px;
 }
 
 .password-form .profile-input {
@@ -1760,6 +1760,28 @@ span.flatpickr-weekday {
 
 .password-form-btns button.saving:hover {
     background-color: #f0e0e0;
+}
+
+.settings-password-wrapper {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0 12px;
+}
+
+.settings-password-wrapper .profile-input {
+    border: none;        
+    padding: 8px 0;
+    padding-right: 32px; 
+    width: 100%;
+}
+
+.settings-password-wrapper .toggle-password {
+    color: #aaa;
+    transition: color 0.2s ease;
+}
+
+.settings-password-wrapper .toggle-password:hover {
+    color: #6B0504;
 }
 
 

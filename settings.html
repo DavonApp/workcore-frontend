@@ -123,13 +123,44 @@
                             <p>Password</p>
                             <small id="last-changed-text">Last changed: Never</small>
 
-                            <!-- Hidden password update form (revealed on user action) -->
+                            <!-- Hidden password update form-->
                             <div class="password-form" id="password-form" style="display: none;">
-                                <input class="profile-input" type="password" placeholder="Current password" id="current-password">
-                                <input class="profile-input" type="password" placeholder="New password" id="new-password">
-                                <input class="profile-input" type="password" placeholder="Confirm new password" id="confirm-password">
+                                <div class="password-wrapper settings-password-wrapper">
+                                    <input class="profile-input" type="password" placeholder="Current password" id="current-password">
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('current-password', this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </div>
 
-                                <!-- Form actions: cancel or save password update -->
+                                <div class="password-wrapper settings-password-wrapper">
+                                    <input class="profile-input" type="password" placeholder="New password" id="new-password">
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('new-password', this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <div class="password-wrapper settings-password-wrapper">
+                                    <input class="profile-input" type="password" placeholder="Confirm new password" id="confirm-password">
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('confirm-password', this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </div>
+
                                 <div class="password-form-btns">
                                     <button class="edit-button" onclick="togglePasswordForm()"><p>Cancel</p></button>
                                     <button class="edit-button saving" onclick="savePassword()"><p>Save</p></button>
