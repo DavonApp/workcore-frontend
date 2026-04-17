@@ -4,6 +4,10 @@
     <!-- External stylesheet  -->
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Main JavaScript file for handling interactivity -->
+        <!-- defer ensures DOM loads before script runs -->
+        <script type="text/javascript" src="app.js" defer></script>
+
     <!-- JavaScript file for sign up  functionality -->
     <script type="text/javascript" src="signup.js" defer></script>
 
@@ -58,10 +62,18 @@
                 <label for="password">Password</label>
 
                 <!-- Password field hides input for security -->
-                <input 
+                <div class="password-wrapper">
+                    <input 
                     type="password" required 
                     id="password" 
                     placeholder="Enter your password...">
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('password', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                            fill="none" stroke="currentColor" stroke-width="2" id="eye-icon">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                </div>
             </div>
 
         </form>

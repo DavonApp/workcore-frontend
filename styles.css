@@ -563,6 +563,35 @@ nav {
     box-sizing: border-box;
 }
 
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* make room for the icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #6B0504; /* adjust to match your theme */
+}
+
 .signup-form-group input:focus {
     border-color: #6B0504;
     box-shadow: 0 0 0 2px rgba(107, 5, 4, 0.15);
