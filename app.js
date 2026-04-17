@@ -646,6 +646,34 @@ function toggleDeleteModal() {
     modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
 }
 
+// ==========================
+// ACCOUNT DELETION LOGIC
+// ==========================
+
+async function confirmDeleteAccount() {
+    try {
+        const res = await fetch('http://localhost:8080/api/user/account', {
+            method: 'DELETE',
+            credentials: 'include' // Identifies the session
+        });
+
+        if (res.ok) {
+            alert("Account deleted successfully.");
+            // Redirect to login or signup since the account no longer exists
+            window.location.href = 'login.html';
+        } else {
+            const errorMsg = await res.text();
+            alert("Failed to delete account: " + errorMsg);
+        }
+    } catch (err) {
+        console.error("Error deleting account:", err);
+        alert("An error occurred. Please try again.");
+    } finally {
+        // Close the modal regardless of outcome
+        toggleDeleteModal();
+    }
+}
+
 
 // ==========================
 // CALENDAR CONTROLS
