@@ -12,6 +12,8 @@ document.getElementById('login-form').addEventListener('submit', async function(
     });
 
     if (res.ok) {
+        const data = await res.json();
+        localStorage.setItem('jwt_token', data.token); // Save the JWT
         window.location.href = 'dashboard.html'; // redirect to your main page
     } else {
         const error = await res.text();

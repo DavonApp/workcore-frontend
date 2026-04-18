@@ -18,6 +18,14 @@ function formatDateForBackend(dateStr) {
     return `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
 }
 
+function authHeaders() {
+    const token = localStorage.getItem('jwt_token');
+    return {
+        'Content-Type': 'application/json',
+        ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+    };
+}
+
 // Reads all values off a task card and returns a plain object
 function getTaskDataFromCard(card) {
     return {
@@ -332,7 +340,7 @@ function createTaskCard(isTodayPage = false, isCompletedPage = false, isUpcoming
                 try {
                     const res = await fetch(taskId ? `${API_BASE}/${taskId}` : API_BASE, {
                     method: taskId ? 'PUT' : 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: authHeaders(),
                     credentials: 'include',
                     body: JSON.stringify(data)
                     });
@@ -405,7 +413,7 @@ async function toggleComplete(checkbox) {
     if (taskId) {
         await fetch(`${API_BASE}/${taskId}`, {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: authHeaders(),
             credentials: 'include', // sends session cookie
             body: JSON.stringify(getTaskDataFromCard(card))
         });
@@ -428,6 +436,7 @@ async function deleteTask(btn) {
     if (taskId) {
         await fetch(`http://localhost:8080/api/tasks/${taskId}`, { 
             method: 'DELETE',
+            headers: authHeaders(),
             credentials: 'include' // sends session cookie
         });
     }
@@ -493,7 +502,7 @@ async function saveProfileField(field, value) {
     try {
         await fetch('http://localhost:8080/api/user/profile', {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json'},
+            headers: authHeaders(),
             credentials: 'include',
             body: JSON.stringify( {[field]: value})
         });
@@ -574,7 +583,7 @@ async function savePassword() {
     try {
         const res = await fetch('http://localhost:8080/api/user/password', {
             method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
+            headers: authHeaders(),
             credentials: 'include',
             body: JSON.stringify({
                 currentPassword: current,
@@ -611,6 +620,7 @@ async function loadSettings() {
 
     try {
         const res = await fetch('http://localhost:8080/api/user/profile', {
+            headers: authHeaders(),
             credentials: 'include'
         });
         
@@ -654,6 +664,7 @@ async function confirmDeleteAccount() {
     try {
         const res = await fetch('http://localhost:8080/api/user/account', {
             method: 'DELETE',
+            headers: authHeaders(),
             credentials: 'include' // Identifies the session
         });
 
@@ -740,18 +751,33 @@ function changeCalendarView(viewName, btnElement) {
 document.addEventListener('DOMContentLoaded', async () => {
 
     // Check if user is logged in before loading anything
-    const authCheck = await fetch('http://localhost:8080/api/auth/me', {
-        credentials: 'include'
-    });
-
-    if (!authCheck.ok) {
+    const token = localStorage.getItem('jwt_token');
+    const currentPage = window.location.pathname;
+    const isAuthPage = currentPage.includes('login') ||
+                       currentPage.includes('signup') ||
+                       currentPage.includes('oauth-callback');
+    if (!token && !isAuthPage) {
         window.location.href = 'login.html';
-        return; // Stop everything else from running
+        return;
+    }
+
+    if (token) {
+        const authCheck = await fetch('http://localhost:8080/api/auth/me', {
+            headers: authHeaders(),
+            credentials: 'include'
+        });
+
+        if (!authCheck.ok && !isAuthPage) {
+            localStorage.removeItem('jwt_token'); // clear bad token
+            window.location.hfef = 'login.html';
+            return;
+        }
     }
 
 
     // Load profile on every page - populates sidebar and form fields if present
     const profileRes = await fetch ('http://localhost:8080/api/user/profile', {
+        headers: authHeaders(),
         credentials: 'include'
     });
 
@@ -782,6 +808,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function loadTasks() {
     const res = await fetch(API_BASE, {
+        headers: authHeaders(),
         credentials: 'include' // sends session cookie
     });
 
@@ -903,6 +930,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             events: async function(fetchInfo, successCallback, failureCallback) {
                 try {
                     const res = await fetch(API_BASE, {
+                        headers: authHeaders(),
                         credentials: 'include' // sends session cookie
                     });
                     const tasks = await res.json();
