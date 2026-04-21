@@ -2102,6 +2102,26 @@ span.flatpickr-weekday {
         border-bottom: 2px solid #e0e0e0;
         padding-bottom: 10px;
     }
+    .login-security-content-row3 button,
+    .settings-content-row2-right button,
+    .login-security-content-row2-right button {
+        font-size: 12px;
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    .login-security-content-row2,
+    .login-security-content-row3,
+    .settings-content-row2,
+    .settings-content-row3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .settings-content {
+        padding: 16px;
+    }
 
     /* Landing page */
     .hero-section {
