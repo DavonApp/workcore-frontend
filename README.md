@@ -102,13 +102,13 @@ Frontend → API → Database
 
 ## Screenshots
 
-(Add homepage screenshot)
+<img width="1440" height="809" alt="Screenshot 2026-04-21 at 1 14 07 AM" src="https://github.com/user-attachments/assets/1804d734-ecdf-49b7-ad4e-f60b130a04b7" />
 
-(Add dashboard screenshot)
+<img width="1440" height="811" alt="Screenshot 2026-04-21 at 1 15 45 AM" src="https://github.com/user-attachments/assets/16d0db7c-e152-4f4c-bd21-eba493685ba9" />
 
-(Add task/calendar screenshot)
+<img width="1440" height="810" alt="Screenshot 2026-04-21 at 1 17 04 AM" src="https://github.com/user-attachments/assets/1b60df19-561f-4025-b485-a5efc99f2212" />
 
-(Add profile/settings screenshot)
+<img width="1440" height="809" alt="Screenshot 2026-04-21 at 1 17 49 AM" src="https://github.com/user-attachments/assets/1014ac3f-dd8a-4a08-a702-80488d1c96c9" />
 
 ---
 
