@@ -2188,28 +2188,33 @@ span.flatpickr-weekday {
     }
 
     #about {
-        min-width: 100vh;
+        min-width: unset;
+        width: 100%;
         height: auto;
+        min-height: auto;
         padding: 60px 20px;
-        overflow-y: auto;
         overflow-x: hidden;
     }
 
     .about-content {
         max-width: 100%;
         padding: 0 10px;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .about-content p {
         font-size: 16px;
         line-height: 1.7;
         text-align: left;
+        word-wrap: break-word;
     }
 
     .about-content h1,
     .about-content h2 {
         font-size: 28px;
         text-align: center;
+        width: 100%;
     }
 
     section {
