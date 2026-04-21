@@ -2144,7 +2144,27 @@ span.flatpickr-weekday {
     }
 
     nav {
-        margin-left: 0;
+        margin-left: 10px;
+    }
+
+    .nav__links li, .nav__links a {
+        font-size: 14px;
+        padding: 6px 6px;
+    }
+
+    .nav-right button {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
+    .hero-section img {
+        width: 80%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .hero-content {
+        gap: 20px;
     }
 
     .steps {
@@ -2163,6 +2183,17 @@ span.flatpickr-weekday {
         padding: 60px 20px 40px 20px;
     }
 
+    #about {
+        min-width: 100vh;
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    section {
+        height: auto;
+        min-height: 100vh;
+    }
+
     .contact-column1 {
         gap: 40px;
     }
@@ -2176,6 +2207,6 @@ span.flatpickr-weekday {
     .how-it-works-header {
         flex-direction: column;
         gap: 20px;
-        padding: 40px 20px;
+        padding-bottom: 60px;
     }
 }
