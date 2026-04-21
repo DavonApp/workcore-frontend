@@ -2140,6 +2140,9 @@ span.flatpickr-weekday {
     }
 
     .main-header {
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid #e0e0e0;
         padding: 10px 20px;
     }
 
@@ -2160,6 +2163,7 @@ span.flatpickr-weekday {
     .hero-section img {
         width: 80%;
         height: auto;
+        margin-top: 15px;
         margin-bottom: 20px;
     }
 
