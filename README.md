@@ -82,7 +82,44 @@ Frontend URL: https://workcore-app.netlify.app
 
 ## Design Process
 
-WorkCore was first planned and designed in Figma before development. The goal was to create a modern, productivity-focused user experience with simple navigation and strong usability.
+WorkCore began as a UI/UX concept in Figma before development started. Designing first helped define the user journey, layout structure, and feature priorities before writing code.
+
+### Goals
+
+* Create a clean and modern productivity interface
+* Keep navigation simple and intuitive
+* Prioritize speed and usability
+* Build a layout that scales across multiple pages
+
+### Figma Planning Included
+
+* Homepage wireframes
+* Dashboard layouts
+* Authentication flows
+* Task management screens
+* Settings pages
+* Responsive mobile concepts
+
+### From Design to Development
+
+After finalizing layouts in Figma, the frontend was built using HTML, CSS, and JavaScript while preserving the original design direction and improving usability during development.
+
+### Design Preview
+
+<img width="490" height="783" alt="Screenshot 2026-04-21 at 1 49 18 AM" src="https://github.com/user-attachments/assets/cee9906f-a6f2-466b-8328-d8e8eea7ec61" />
+
+<img width="501" height="650" alt="Screenshot 2026-04-21 at 1 50 49 AM" src="https://github.com/user-attachments/assets/ad80c60f-831c-4319-b8c7-0858b13085cc" />
+
+<img width="784" height="566" alt="Screenshot 2026-04-21 at 1 52 14 AM" src="https://github.com/user-attachments/assets/b062d47e-0dd1-4386-9c1c-8b7318bac1be" />
+
+<img width="795" height="560" alt="Screenshot 2026-04-21 at 1 53 00 AM" src="https://github.com/user-attachments/assets/d09d4b06-81a1-442a-af6b-33d41fbeed66" />
+
+<img width="810" height="535" alt="Screenshot 2026-04-21 at 1 53 13 AM" src="https://github.com/user-attachments/assets/74176693-3970-48fb-8249-cda9b99d0b8c" />
+
+<img width="809" height="552" alt="Screenshot 2026-04-21 at 1 53 27 AM" src="https://github.com/user-attachments/assets/57e78cac-aab3-4b6b-a952-00e6e160c77a" />
+
+<img width="811" height="742" alt="Screenshot 2026-04-21 at 1 53 40 AM" src="https://github.com/user-attachments/assets/333dc46d-9cb4-4764-b56f-e2947069c47c" />
+
 
 ---
 
