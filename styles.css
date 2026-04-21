@@ -2200,10 +2200,11 @@ span.flatpickr-weekday {
         padding: 0 10px;
     }
 
-    .about-content p {
+    .about-content h3 {
         font-size: 16px;
         line-height: 1.7;
         text-align: left;
+        font-weight: 400;
     }
 
     .about-content h1,
